@@ -1,0 +1,91 @@
+/* 全体のコンテナスタイル */
+.container-center {
+    max-width: 800px;
+    margin-top: 50px;
+}
+
+/* タイトルの左寄せ */
+.title-left {
+    text-align: left;
+}
+
+/* スレッド一覧ボックス */
+.thread-list-box {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 100px;
+}
+
+/* スレッドボタンのスタイル */
+.thread-button {
+    padding: 15px;
+    min-height: 60px;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    text-align: left;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.thread-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.thread-button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* フォームの間隔 */
+.form-spacing {
+    margin: 0.5rem 0;
+}
+
+/* 投稿フォームのテキストエリア */
+.article-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+/* 投稿成功メッセージ */
+.success-message {
+    margin: 1.5rem 0;
+}
+
+/* 投稿一覧のスタイル */
+.article-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.article-item {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.article-header {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.article-content {
+    color: #333;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+}
