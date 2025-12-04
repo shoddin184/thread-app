@@ -1,20 +1,10 @@
-// 掲示板アプリケーションのJavaScript
-
-// ページ読み込み時の初期化
 document.addEventListener('DOMContentLoaded', function() {
     console.log('掲示板アプリケーションが読み込まれました');
-
-    // フォームのバリデーション
     initFormValidation();
-
-    // スレッドボタンのホバーエフェクト
     initThreadButtonEffects();
-
-    // カルーセルの初期化
     initCarousel();
 });
 
-// フォームバリデーションの初期化
 function initFormValidation() {
     const forms = document.querySelectorAll('form');
 
@@ -23,7 +13,6 @@ function initFormValidation() {
             const threadInput = form.querySelector('input[name="thread"]');
             const articleTextarea = form.querySelector('textarea[name="article"]');
 
-            // スレッド名のバリデーション（新規作成時）
             if (threadInput && threadInput.type !== 'hidden') {
                 if (threadInput.value.trim() === '') {
                     event.preventDefault();
@@ -32,7 +21,6 @@ function initFormValidation() {
                 }
             }
 
-            // 投稿内容のバリデーション
             if (articleTextarea) {
                 if (articleTextarea.value.trim() === '') {
                     event.preventDefault();
@@ -44,7 +32,6 @@ function initFormValidation() {
     });
 }
 
-// スレッドボタンのエフェクト
 function initThreadButtonEffects() {
     const threadButtons = document.querySelectorAll('.thread-button');
 
@@ -60,7 +47,6 @@ function initThreadButtonEffects() {
     });
 }
 
-// カルーセルの初期化
 function initCarousel() {
     const wrapper = document.getElementById('carouselWrapper');
     if (!wrapper) return;
@@ -69,32 +55,28 @@ function initCarousel() {
     if (items.length === 0) return;
 
     let currentIndex = 0;
-    const itemWidth = 266; // 240px + margin 26px (13px * 2)
+    const itemWidth = 266;
     const totalItems = items.length;
-    const originalItemCount = 7; // オリジナルのアイテム数
+    const originalItemCount = 7;
 
-    // 3秒ごとに1つずつスライド
     setInterval(() => {
         currentIndex++;
         wrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
 
-        // オリジナルのアイテム数を超えたら最初に戻る（シームレスに）
         if (currentIndex >= originalItemCount) {
             setTimeout(() => {
                 wrapper.style.transition = 'none';
                 currentIndex = 0;
                 wrapper.style.transform = `translateX(0)`;
 
-                // トランジションを再度有効化
                 setTimeout(() => {
                     wrapper.style.transition = 'transform 0.5s ease';
                 }, 50);
-            }, 500); // トランジション完了後に実行
+            }, 500);
         }
     }, 3000);
 }
 
-// ユーティリティ関数: テキストのサニタイズ
 function sanitizeText(text) {
     const div = document.createElement('div');
     div.textContent = text;

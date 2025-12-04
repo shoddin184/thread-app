@@ -5,7 +5,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# データベース設定
 DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///test.db')
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
@@ -14,7 +13,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-# モデル定義（変更なし）
 class Thread(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     threadname = db.Column(db.String(80), unique=True)
@@ -27,12 +25,10 @@ class Article(db.Model):
     article = db.Column(db.Text())
     thread_id = db.Column(db.Integer, db.ForeignKey('thread.id'), nullable=False)
 
-# データベース初期化関数
 def init_db():
     with app.app_context():
         db.create_all()
 
-# ルートの実装（変更なし）
 @app.route("/")
 def main():
     threads = Thread.query.all()
