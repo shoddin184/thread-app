@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="container text-center container-center">
-    <h1 class="title-left">@ちゃんねる</h1>
+    <h1>@ちゃんねる</h1>
 
     <form action="/thread" method="post" class="my-4">
         <label for="thread">新しいスレッドを立てる</label>
@@ -19,6 +19,31 @@
             </form>
             {% endif %}
         {% endfor %}
+    </div>
+
+    <h2>人気</h2>
+    <div class="carousel-container">
+        <div class="carousel-wrapper" id="carouselWrapper">
+            <div class="carousel-item">スレッド1</div>
+            <div class="carousel-item">スレッド2</div>
+            <div class="carousel-item">スレッド3</div>
+            <div class="carousel-item">スレッド4</div>
+            <div class="carousel-item">スレッド5</div>
+            <div class="carousel-item">スレッド6</div>
+            <div class="carousel-item">スレッド7</div>
+            <div class="carousel-item">スレッド1</div>
+            <div class="carousel-item">スレッド2</div>
+            <div class="carousel-item">スレッド3</div>
+            <div class="carousel-item">スレッド4</div>
+            <div class="carousel-item">スレッド5</div>
+            <div class="carousel-item">スレッド6</div>
+            <div class="carousel-item">スレッド7</div>
+        </div>
+    </div>
+
+    <h2>ニュース</h2>
+    <div class="news-section">
+        内容は順次追加予定です
     </div>
 </div>
 {% endblock %}

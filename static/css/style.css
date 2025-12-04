@@ -59,6 +59,108 @@
     margin: 1.5rem 0;
 }
 
+/* 人気セクションのタイトル */
+h2 {
+    margin-top: 40px;
+}
+
+/* カルーセルのスタイル */
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    width: 240px;
+    height: 200px;
+    margin: 0 13px;
+    background-color: #adb5bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #007bff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    position: relative;
+    --cut-size: 30px;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - var(--cut-size)),
+        calc(100% - var(--cut-size)) 100%,
+        0 100%
+    );
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-color: white;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - var(--cut-size)),
+        calc(100% - var(--cut-size)) 100%,
+        0 100%
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+.carousel-item::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: calc(var(--cut-size) + 4px);
+    height: calc(var(--cut-size) + 4px);
+    background: linear-gradient(
+        to top left,
+        #adb5bd 0px,
+        #adb5bd 2px,
+        white 2px,
+        white 100%
+    );
+    clip-path: polygon(100% 100%, 0% 100%, 100% 0%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ニュースセクションのスタイル */
+.news-section {
+    margin-top: 20px;
+    margin-bottom: 300px;
+    color: #000;
+}
+
+/* フッターのスタイル */
+.footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.copyright {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
 /* 投稿一覧のスタイル */
 .article-list {
     list-style: none;
